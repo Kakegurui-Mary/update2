@@ -1,0 +1,36 @@
+"proxy": "http://localhost:8800/api/" -> in paxkage.json
+
+Use yarn start, to start the project.
+
+Searchbar:
+The search bar, located in the Navbar, provides users with easy access. Users can search through all data or filter their search 
+to a specific category. Search results are displayed in a new browser window, such as /search, with a layout just like the Homepage 
+or category pages, showing titles, images and read more button. Clicking on a recipe in the search results directs the user to a detailed view, 
+akin to the Single.jsx page. (Actually I would like to display of average rating as well but therefore Reviews need to work properly 
+and I'm not sure how to do that)
+
+Saved Recipes:
+In the "Saved" browser tab, users can view recipes they've saved. When logged in, users see a "save" button on recipes, 
+allowing them to bookmark recipes of interest. Upon saving, the button changes to an "unsave" option. Saved recipes appear 
+with their titles, images, and a "read more" button, mirroring the layout of the Homepage or category pages. Clicking on a 
+saved recipe in the "Saved" tab directs the user to a detailed view, similar to Single.jsx.
+
+The issue arises when saving a recipe; although it's successfully added to the database with the appropriate IDs, 
+upon revisiting the recipe, the save button appears instead of the "unsave" option. Reloading the page reinstates the save button, 
+potentially leading to duplicate entries in the database. Additionally, saved recipes aren't displayed in the "Saved" tab, despite 
+being saved by the logged-in user.
+
+Review (Rating and Comment):
+Users can view and contribute reviews for recipes when viewing them in detail (Single.jsx). Only logged-in users can leave reviews, 
+and the total number of ratings for each star level is displayed. Users can edit or delete their reviews, ensuring no duplicate 
+submissions. Implementing this feature has been challenging, as it requires integrating functionality for adding, editing, 
+and deleting reviews, which hasn't been previously explored or taught.
+
+Information Database:
+Database: blog
+Tables:
+
+users: Contains user information, including id (primary key), username, email, and password.
+posts: Stores details of each recipe, such as id (primary key), title, desc, cat, img, date, uid (foreign key), and ingr.
+reviews: Records user reviews, including id (primary key), rating, comment, userId (foreign key), and postId (foreign key).
+saved_recipes: Tracks saved recipes, with fields for id (primary key), postId (foreign key), and userId (foreign key).
